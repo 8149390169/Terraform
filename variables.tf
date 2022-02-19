@@ -5,11 +5,11 @@ variable "environment" {
 ### Key
 variable "AWS_ACCESS_KEY" {
   type = string
-  default = "AKIATEQPQ5XUYGC55YXN"
+  default = ""
 }
 variable "AWS_SECRET_KEY" {
   type = string
-  default = "o3bMC4USUrjrwxDkJNs/DCaP/cDwxqwBXzofVq4U"
+  default = ""
 }
 variable "AWS_REGION" {
   type = string
