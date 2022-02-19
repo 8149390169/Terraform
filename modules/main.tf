@@ -74,7 +74,7 @@ module "auto-scaling" {
   instance-type = "t2.micro"
   launch-configuration-security-groups = module.vpc.security
   launch-configuration-public-key-name = "ShubhamAWS"
-  instance-profile = "instance-profile"
+  instance-profile = "Jenkins-Profile"
 
   #Auto-Scaling
 
