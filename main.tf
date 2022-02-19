@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "./vpc"
+  source = "./modules/vpc"
   ###VPC###
   environment = "Dev"
   instance-tenancy = "default"
@@ -66,7 +66,7 @@ module "alb" {
 }
 ###################################################
 module "auto-scaling" {
-  source = "./autoscaling"
+  source = "./modules/autoscaling"
   region = "${var.AWS_REGION}"
   #Launch Configuration
   environment = "Dev"
