@@ -1,6 +1,6 @@
-provider "aws" {
-  region = "${var.region}"
-}
+#provider "aws" {
+#  region = "${var.region}"
+#}
 
 #CREATING A NEW KEY PAIR AND EXPORTING OUR PUBLIC-KEY
 #resource "aws_key_pair" "key-pair" {

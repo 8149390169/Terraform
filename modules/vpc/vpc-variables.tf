@@ -2,20 +2,6 @@
 variable "environment" {
   default = ""
 }
-### Key
-variable "AWS_ACCESS_KEY" {
-  type = string
-  default = "AKIAZAKCNERY6PQ6GI4O"
-}
-variable "AWS_SECRET_KEY" {
-  type = string
-  default = "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"
-}
-variable "AWS_REGION" {
-  type = string
-  default = "ap-south-1"
-}
-#######
 
 #VPC
 variable "instance-tenancy" {

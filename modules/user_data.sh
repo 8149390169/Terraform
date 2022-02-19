@@ -22,9 +22,9 @@ systemctl disable firewalld
 # disable selinux
 sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
 
-GIT_USR=shubham.bhadke
-GIT_PSW=Sonyalph%407m3
-GIT_URL=github.globant.com/shubham-bhadke/Chef.git
+#GIT_USR=shubham.bhadke
+#GIT_PSW=Sonyalph%407m3
+GIT_URL=github.com/8149390169/Chef.git
 CHEF_URL=https://omnitruck.chef.io/install.sh
 CHEF_VERSION=0.18.30
 
@@ -43,9 +43,10 @@ echo "---------------- Chef Genrating cookbook ----------------"
 chef generate cookbook /root/cookbooks/apache
 echo "---------------- Chef Cloning ----------------"
 cd /tmp/
-git clone "https://${GIT_USR}:${GIT_PSW}@${GIT_URL}" 
+#git clone "https://${GIT_USR}:${GIT_PSW}@${GIT_URL}" 
+git clone "https://${GIT_URL}"
 cp -rvf /tmp/Chef/apache/server.rb /root/cookbooks/apache/recipes/
 echo "---------------- Chef Config applying ----------------"
 chef-client -z /root/cookbooks/apache/recipes/server.rb
 echo "---------------- Removing tem data ----------------"
-rm -rf /tmp/Chef
+#rm -rf /tmp/Chef

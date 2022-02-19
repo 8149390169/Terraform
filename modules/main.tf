@@ -5,15 +5,15 @@ module "vpc" {
   instance-tenancy = "default"
   enable-dns-support = "true"
   enable-dns-hostnames = "true"
-  vpc-name = "mumbai-vpc"
-  vpc-location = "mumbai"
-  region = "ap-south-1"
+  vpc-name = "Mumbai-vpc"
+  vpc-location = "Mumbai"
+  region = "${var.AWS_REGION}"
   internet-gateway-name = "Test-igw"
   map_public_ip_on_launch = "true"
   public-subnets-name = "public-subnets"
-  public-subnets-location = "mumbai"
+  public-subnets-location = "Mumbai"
   public-subnet-routes-name = "public-subnet-routes"
-  private-subnets-location-name = "mumbai"
+  private-subnets-location-name = "Mumbai"
   private-subnet-name = "private-subnets"
   total-nat-gateway-required = "1"
   eip-for-nat-gateway-name = "eip-nat-gateway"
@@ -23,7 +23,7 @@ module "vpc" {
   vpc-cidr = "10.11.0.0/16"
   vpc-public-subnet-cidr = ["10.11.1.0/24","10.11.2.0/24","10.11.3.0/24"]
   vpc-private-subnet-cidr = ["10.11.4.0/24","10.11.5.0/24","10.11.6.0/24"]
-  sg_name = "mumbai-vpc-sg"
+  sg_name = "Mumbai-vpc-sg"
 }
 ###################################################
 /*
@@ -37,7 +37,7 @@ module "alb" {
   version = "~> 6.3.0"
 
   name = "my-alb"
-  environment = "Dev"
+#  environment = "Dev"
   load_balancer_type = "application"
 
   vpc_id          = module.vpc.vpc-id
@@ -46,7 +46,7 @@ module "alb" {
 
   target_groups = [
     {
-      name_prefix      = "Target-Group"
+      name_prefix      = "T-G"
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
@@ -67,14 +67,14 @@ module "alb" {
 ###################################################
 module "auto-scaling" {
   source = "./autoscaling"
-  region = "ap-south-1"
+  region = "${var.AWS_REGION}"
   #Launch Configuration
   environment = "Dev"
   launch-configuration-name = "Web"
   instance-type = "t2.micro"
   launch-configuration-security-groups = module.vpc.security
-  launch-configuration-public-key-name = "a"
-  instance-profile = "instance_profile"
+  launch-configuration-public-key-name = "ShubhamAWS"
+  instance-profile = "instance-profile"
 
   #Auto-Scaling
 
